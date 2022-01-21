@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">Test App</string>
+    <string name="app_name">Recognizer</string>
     <string name="camera_permission_denied">Camera permission denied</string>
+    <string name="button_document">Read text from ID card</string>
+    <string name="button_face">Detect face</string>
+    <string name="face_not_found">Couldn\'t found any face, try again</string>
+    <string name="text_not_found">Couldn\'t found any document with text, try again</string>
+    <string name="face_picture">Face picture</string>
+    <string name="id_card">ID Card</string>
+    <string name="no_pictures_yet">Take pictures from your face and ID card</string>
 </resources>

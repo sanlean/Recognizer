@@ -1,53 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_read_text"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvFace"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Read text from ID card"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginStart="@dimen/margin_56"
+        android:layout_marginEnd="@dimen/margin_56"
+        app:cardCornerRadius="@dimen/margin_20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_detect_face"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/face_picture"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_gravity="center"
+                android:textColor="?colorPrimaryVariant"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+
+            <ImageView
+                android:id="@+id/ivFace"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_200"
+                android:layout_margin="@dimen/margin_8"
+                tools:src="@drawable/mona_lisa" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDocument"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Detect face"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginStart="@dimen/margin_56"
+        android:layout_marginEnd="@dimen/margin_56"
+        app:cardCornerRadius="@dimen/margin_20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_read_text" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvFace">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/id_card"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_gravity="center"
+                android:textColor="?colorPrimaryVariant"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:id="@+id/tvDocumentResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="top|center"
+                android:minLines="3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnDetectFace"
+                tools:text="Result text here" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/txt_result"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tvNoPictures"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_pictures_yet"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_detect_face"
-        tools:text="Result text here" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnReadDocument"/>
 
-    <ImageView
-        android:id="@+id/image_face"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_result"
-        tools:src="@drawable/mona_lisa" />
+    <Button
+        android:id="@+id/btnReadDocument"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10"
+        android:text="@string/button_document"
+        style="@style/ButtonBlue"
+        app:layout_constraintBottom_toTopOf="@id/btnDetectFace" />
+
+    <Button
+        android:id="@+id/btnDetectFace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10"
+        android:text="@string/button_face"
+        style="@style/ButtonBlue"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
