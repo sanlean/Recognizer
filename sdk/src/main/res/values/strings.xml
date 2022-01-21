@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string translatable="false" name="icon_back">←</string>
+    <string name="document_position">Place your ID card in the space above</string>
+    <string name="face_position">Place your face in the space above</string>
+    <string name="take_picture">Take picture</string>
+    <string name="back">Back</string>
+</resources>

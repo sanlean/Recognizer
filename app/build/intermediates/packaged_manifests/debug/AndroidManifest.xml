@@ -30,8 +30,7 @@
         android:theme="@style/Theme.TestApp" >
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
-            android:value="ocr" />
-        <!-- To use multiple models: android:value="ocr,model2,model3" -->
+            android:value="ocr,face" />
 
         <activity android:name="com.example.testapp.CameraActivity" />
         <activity android:name="com.example.testapp.MainActivity" >
@@ -41,6 +40,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.sdk.document.DocumentDetectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.example.sdk.face.FaceDetectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <service
             android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"

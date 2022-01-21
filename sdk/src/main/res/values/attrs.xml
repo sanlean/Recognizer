@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CameraOverlayView">
+        <attr name="aspectRatio" format="float" />
+        <attr name="topMarginPercent" format="float" />
+        <attr name="horizontalMarginPercent" format="float" />
+        <attr name="widthStroke" format="float"/>
+        <attr name="colorStroke" format="color"/>
+        <attr name="colorBackground" format="color"/>
+        <attr name="overlayType" format="enum">
+            <enum name="face" value="0"/>
+            <enum name="document" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
