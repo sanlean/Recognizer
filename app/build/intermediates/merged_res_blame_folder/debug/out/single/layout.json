@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/lnsanta/Downloads/TestApp/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/lnsanta/Downloads/TestApp/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/lnsanta/Downloads/TestApp/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_camera.xml",
+        "source": "/Users/lnsanta/Downloads/TestApp/app/src/main/res/layout/activity_camera.xml"
+    }
+]
