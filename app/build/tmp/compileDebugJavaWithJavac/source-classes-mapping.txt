@@ -1,6 +1,6 @@
-com/example/testapp/databinding/ActivityCameraBinding.java
- com.example.testapp.databinding.ActivityCameraBinding
 com/example/testapp/BuildConfig.java
  com.example.testapp.BuildConfig
+com/example/testapp/databinding/ActivityCameraBinding.java
+ com.example.testapp.databinding.ActivityCameraBinding
 com/example/testapp/databinding/ActivityMainBinding.java
  com.example.testapp.databinding.ActivityMainBinding

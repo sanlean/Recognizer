@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.testapp.R;
@@ -24,21 +25,35 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button btnDetectFace;
 
   @NonNull
-  public final Button btnReadText;
+  public final Button btnReadDocument;
 
   @NonNull
-  public final ImageView imageFace;
+  public final CardView cvDocument;
 
   @NonNull
-  public final TextView txtResult;
+  public final CardView cvFace;
+
+  @NonNull
+  public final ImageView ivFace;
+
+  @NonNull
+  public final TextView tvDocumentResult;
+
+  @NonNull
+  public final TextView tvNoPictures;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnDetectFace,
-      @NonNull Button btnReadText, @NonNull ImageView imageFace, @NonNull TextView txtResult) {
+      @NonNull Button btnReadDocument, @NonNull CardView cvDocument, @NonNull CardView cvFace,
+      @NonNull ImageView ivFace, @NonNull TextView tvDocumentResult,
+      @NonNull TextView tvNoPictures) {
     this.rootView = rootView;
     this.btnDetectFace = btnDetectFace;
-    this.btnReadText = btnReadText;
-    this.imageFace = imageFace;
-    this.txtResult = txtResult;
+    this.btnReadDocument = btnReadDocument;
+    this.cvDocument = cvDocument;
+    this.cvFace = cvFace;
+    this.ivFace = ivFace;
+    this.tvDocumentResult = tvDocumentResult;
+    this.tvNoPictures = tvNoPictures;
   }
 
   @Override
@@ -68,32 +83,50 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_detect_face;
+      id = R.id.btnDetectFace;
       Button btnDetectFace = rootView.findViewById(id);
       if (btnDetectFace == null) {
         break missingId;
       }
 
-      id = R.id.btn_read_text;
-      Button btnReadText = rootView.findViewById(id);
-      if (btnReadText == null) {
+      id = R.id.btnReadDocument;
+      Button btnReadDocument = rootView.findViewById(id);
+      if (btnReadDocument == null) {
         break missingId;
       }
 
-      id = R.id.image_face;
-      ImageView imageFace = rootView.findViewById(id);
-      if (imageFace == null) {
+      id = R.id.cvDocument;
+      CardView cvDocument = rootView.findViewById(id);
+      if (cvDocument == null) {
         break missingId;
       }
 
-      id = R.id.txt_result;
-      TextView txtResult = rootView.findViewById(id);
-      if (txtResult == null) {
+      id = R.id.cvFace;
+      CardView cvFace = rootView.findViewById(id);
+      if (cvFace == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, btnDetectFace, btnReadText,
-          imageFace, txtResult);
+      id = R.id.ivFace;
+      ImageView ivFace = rootView.findViewById(id);
+      if (ivFace == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDocumentResult;
+      TextView tvDocumentResult = rootView.findViewById(id);
+      if (tvDocumentResult == null) {
+        break missingId;
+      }
+
+      id = R.id.tvNoPictures;
+      TextView tvNoPictures = rootView.findViewById(id);
+      if (tvNoPictures == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, btnDetectFace, btnReadDocument,
+          cvDocument, cvFace, ivFace, tvDocumentResult, tvNoPictures);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

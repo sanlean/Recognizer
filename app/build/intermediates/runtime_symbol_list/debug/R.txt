@@ -997,6 +997,11 @@ int color background_floating_material_light 0x7f05001e
 int color background_material_dark 0x7f05001f
 int color background_material_light 0x7f050020
 int color black 0x7f050021
+int color blue_200 0x7f0500e1
+int color blue_2000 0x7f0500e5
+int color blue_500 0x7f0500e2
+int color blue_700 0x7f0500e3
+int color blue_not_transparent 0x7f0500e8
 int color blue_transparent 0x7f050022
 int color bright_foreground_disabled_material_dark 0x7f050023
 int color bright_foreground_disabled_material_light 0x7f050024
@@ -1068,8 +1073,10 @@ int color error_color_material_dark 0x7f050065
 int color error_color_material_light 0x7f050066
 int color foreground_material_dark 0x7f050067
 int color foreground_material_light 0x7f050068
+int color grayBB 0x7f0500e4
 int color highlighted_text_material_dark 0x7f050069
 int color highlighted_text_material_light 0x7f05006a
+int color ic_launcher_background 0x7f0500e7
 int color material_blue_grey_800 0x7f05006b
 int color material_blue_grey_900 0x7f05006c
 int color material_blue_grey_950 0x7f05006d
@@ -1165,9 +1172,6 @@ int color primary_text_default_material_dark 0x7f0500c6
 int color primary_text_default_material_light 0x7f0500c7
 int color primary_text_disabled_material_dark 0x7f0500c8
 int color primary_text_disabled_material_light 0x7f0500c9
-int color purple_200 0x7f0500ca
-int color purple_500 0x7f0500cb
-int color purple_700 0x7f0500cc
 int color radiobutton_themeable_attribute_color 0x7f0500cd
 int color ripple_material_dark 0x7f0500ce
 int color ripple_material_light 0x7f0500cf
@@ -1188,6 +1192,7 @@ int color test_mtrl_calendar_day_selected 0x7f0500dd
 int color tooltip_background_dark 0x7f0500de
 int color tooltip_background_light 0x7f0500df
 int color white 0x7f0500e0
+int color yellow_500 0x7f0500e6
 int dimen abc_action_bar_content_inset_material 0x7f060000
 int dimen abc_action_bar_content_inset_with_nav 0x7f060001
 int dimen abc_action_bar_default_height_material 0x7f060002
@@ -1335,7 +1340,8 @@ int dimen disabled_alpha_material_light 0x7f06008f
 int dimen fastscroll_default_thickness 0x7f060090
 int dimen fastscroll_margin 0x7f060091
 int dimen fastscroll_minimum_range 0x7f060092
-int dimen fontSize_18sp 0x7f060093
+int dimen font_16 0x7f06018c
+int dimen font_18 0x7f060191
 int dimen highlight_alpha_material_colored 0x7f060094
 int dimen highlight_alpha_material_dark 0x7f060095
 int dimen highlight_alpha_material_light 0x7f060096
@@ -1347,7 +1353,11 @@ int dimen item_touch_helper_max_drag_scroll_per_frame 0x7f06009b
 int dimen item_touch_helper_swipe_escape_max_velocity 0x7f06009c
 int dimen item_touch_helper_swipe_escape_velocity 0x7f06009d
 int dimen margin_10 0x7f06009e
+int dimen margin_16 0x7f060192
+int dimen margin_20 0x7f06018d
+int dimen margin_56 0x7f06018e
 int dimen margin_60 0x7f06009f
+int dimen margin_8 0x7f06018f
 int dimen material_clock_display_padding 0x7f0600a0
 int dimen material_clock_face_margin_top 0x7f0600a1
 int dimen material_clock_hand_center_dot_radius 0x7f0600a2
@@ -1575,6 +1585,8 @@ int dimen notification_small_icon_size_as_large 0x7f06017f
 int dimen notification_subtext_size 0x7f060180
 int dimen notification_top_pad 0x7f060181
 int dimen notification_top_pad_large_text 0x7f060182
+int dimen size_200 0x7f060190
+int dimen size_36 0x7f060193
 int dimen test_mtrl_calendar_day_cornerSize 0x7f060183
 int dimen tooltip_corner_radius 0x7f060184
 int dimen tooltip_horizontal_padding 0x7f060185
@@ -1665,7 +1677,10 @@ int drawable abc_textfield_search_material 0x7f070054
 int drawable abc_vector_test 0x7f070055
 int drawable avd_hide_password 0x7f070056
 int drawable avd_show_password 0x7f070057
+int drawable bg_button_camera 0x7f0700ae
+int drawable bg_button_main 0x7f0700a8
 int drawable bg_document 0x7f070058
+int drawable bg_main 0x7f0700ab
 int drawable btn_checkbox_checked_mtrl 0x7f070059
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f07005a
 int drawable btn_checkbox_unchecked_mtrl 0x7f07005b
@@ -1701,9 +1716,10 @@ int drawable design_password_eye 0x7f070078
 int drawable design_snackbar_background 0x7f070079
 int drawable googleg_disabled_color_18 0x7f07007a
 int drawable googleg_standard_color_18 0x7f07007b
+int drawable ic_check 0x7f0700ac
 int drawable ic_clock_black_24dp 0x7f07007c
+int drawable ic_close 0x7f0700ad
 int drawable ic_keyboard_black_24dp 0x7f07007d
-int drawable ic_launcher_background 0x7f07007e
 int drawable ic_launcher_foreground 0x7f07007f
 int drawable ic_mtrl_checked_circle 0x7f070080
 int drawable ic_mtrl_chip_checked_black 0x7f070081
@@ -1836,9 +1852,9 @@ int id blocking 0x7f080057
 int id bottom 0x7f080058
 int id bounce 0x7f080059
 int id btnBack 0x7f08005a
+int id btnDetectFace 0x7f0801c7
+int id btnReadDocument 0x7f0801c8
 int id btnTakePicture 0x7f08005b
-int id btn_detect_face 0x7f08005c
-int id btn_read_text 0x7f08005d
 int id buttonPanel 0x7f08005e
 int id cache_measures 0x7f08005f
 int id cameraPreview 0x7f080060
@@ -1875,6 +1891,8 @@ int id counterclockwise 0x7f08007e
 int id custom 0x7f08007f
 int id customPanel 0x7f080080
 int id cut 0x7f080081
+int id cvDocument 0x7f0801c5
+int id cvFace 0x7f0801c6
 int id dark 0x7f080082
 int id date_picker_actions 0x7f080083
 int id decelerate 0x7f080084
@@ -1957,12 +1975,12 @@ int id ifRoom 0x7f0800d0
 int id ignore 0x7f0800d1
 int id ignoreRequest 0x7f0800d2
 int id image 0x7f0800d3
-int id image_face 0x7f0800d4
 int id info 0x7f0800d5
 int id invisible 0x7f0800d6
 int id inward 0x7f0800d7
 int id italic 0x7f0800d8
 int id item_touch_helper_previous_elevation 0x7f0800d9
+int id ivFace 0x7f0801c9
 int id jumpToEnd 0x7f0800da
 int id jumpToStart 0x7f0800db
 int id labelGroup 0x7f0800dc
@@ -2177,8 +2195,9 @@ int id transition_position 0x7f0801ac
 int id transition_scene_layoutid_cache 0x7f0801ad
 int id transition_transform 0x7f0801ae
 int id triangle 0x7f0801af
+int id tvDocumentResult 0x7f0801ca
+int id tvNoPictures 0x7f0801cb
 int id tvPictureDescription 0x7f0801b0
-int id txt_result 0x7f0801b1
 int id unchecked 0x7f0801b2
 int id uniform 0x7f0801b3
 int id unlabeled 0x7f0801b4
@@ -2346,6 +2365,7 @@ int layout text_view_with_line_height_from_style 0x7f0b006f
 int layout text_view_with_theme_line_height 0x7f0b0070
 int layout text_view_without_line_height 0x7f0b0071
 int mipmap ic_launcher 0x7f0c0000
+int mipmap ic_launcher_foreground 0x7f0c0002
 int mipmap ic_launcher_round 0x7f0c0001
 int plurals mtrl_badge_content_description 0x7f0d0000
 int string abc_action_bar_home_description 0x7f0e0000
@@ -2381,6 +2401,8 @@ int string appbar_scrolling_view_behavior 0x7f0e001d
 int string back 0x7f0e001e
 int string bottom_sheet_behavior 0x7f0e001f
 int string bottomsheet_action_expand_halfway 0x7f0e0020
+int string button_document 0x7f0e007d
+int string button_face 0x7f0e007e
 int string camera_permission_denied 0x7f0e0021
 int string character_counter_content_description 0x7f0e0022
 int string character_counter_overflowed_content_description 0x7f0e0023
@@ -2410,10 +2432,13 @@ int string error_icon_content_description 0x7f0e003a
 int string exposed_dropdown_menu_content_description 0x7f0e003b
 int string fab_transformation_scrim_behavior 0x7f0e003c
 int string fab_transformation_sheet_behavior 0x7f0e003d
+int string face_not_found 0x7f0e007f
+int string face_picture 0x7f0e0080
 int string face_position 0x7f0e003e
 int string hide_bottom_view_on_scroll_behavior 0x7f0e003f
 int string icon_back 0x7f0e0040
 int string icon_content_description 0x7f0e0041
+int string id_card 0x7f0e0081
 int string item_view_role_description 0x7f0e0042
 int string material_clock_display_divider 0x7f0e0043
 int string material_clock_toggle_content_description 0x7f0e0044
@@ -2465,6 +2490,7 @@ int string mtrl_picker_toggle_to_calendar_input_mode 0x7f0e0071
 int string mtrl_picker_toggle_to_day_selection 0x7f0e0072
 int string mtrl_picker_toggle_to_text_input_mode 0x7f0e0073
 int string mtrl_picker_toggle_to_year_selection 0x7f0e0074
+int string no_pictures_yet 0x7f0e0083
 int string password_toggle_content_description 0x7f0e0075
 int string path_password_eye 0x7f0e0076
 int string path_password_eye_mask_strike_through 0x7f0e0077
@@ -2473,6 +2499,7 @@ int string path_password_strike_through 0x7f0e0079
 int string search_menu_title 0x7f0e007a
 int string status_bar_notification_info_overflow 0x7f0e007b
 int string take_picture 0x7f0e007c
+int string text_not_found 0x7f0e0082
 int style AlertDialog_AppCompat 0x7f0f0000
 int style AlertDialog_AppCompat_Light 0x7f0f0001
 int style AndroidThemeColorAccentYellow 0x7f0f0002
@@ -2699,6 +2726,7 @@ int style Base_Widget_MaterialComponents_Snackbar 0x7f0f00de
 int style Base_Widget_MaterialComponents_TextInputEditText 0x7f0f00df
 int style Base_Widget_MaterialComponents_TextInputLayout 0x7f0f00e0
 int style Base_Widget_MaterialComponents_TextView 0x7f0f00e1
+int style ButtonBlue 0x7f0f02cc
 int style CardView 0x7f0f00e2
 int style CardView_Dark 0x7f0f00e3
 int style CardView_Light 0x7f0f00e4

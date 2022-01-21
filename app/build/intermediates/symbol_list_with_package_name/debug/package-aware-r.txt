@@ -998,6 +998,11 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color blue_200
+color blue_2000
+color blue_500
+color blue_700
+color blue_not_transparent
 color blue_transparent
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -1069,8 +1074,10 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color grayBB
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1166,9 +1173,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color purple_200
-color purple_500
-color purple_700
 color radiobutton_themeable_attribute_color
 color ripple_material_dark
 color ripple_material_light
@@ -1189,6 +1193,7 @@ color test_mtrl_calendar_day_selected
 color tooltip_background_dark
 color tooltip_background_light
 color white
+color yellow_500
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1336,7 +1341,8 @@ dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
-dimen fontSize_18sp
+dimen font_16
+dimen font_18
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -1348,7 +1354,11 @@ dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
 dimen margin_10
+dimen margin_16
+dimen margin_20
+dimen margin_56
 dimen margin_60
+dimen margin_8
 dimen material_clock_display_padding
 dimen material_clock_face_margin_top
 dimen material_clock_hand_center_dot_radius
@@ -1576,6 +1586,8 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen size_200
+dimen size_36
 dimen test_mtrl_calendar_day_cornerSize
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -1666,7 +1678,10 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_button_camera
+drawable bg_button_main
 drawable bg_document
+drawable bg_main
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1702,9 +1717,10 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_check
 drawable ic_clock_black_24dp
+drawable ic_close
 drawable ic_keyboard_black_24dp
-drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
@@ -1837,9 +1853,9 @@ id blocking
 id bottom
 id bounce
 id btnBack
+id btnDetectFace
+id btnReadDocument
 id btnTakePicture
-id btn_detect_face
-id btn_read_text
 id buttonPanel
 id cache_measures
 id cameraPreview
@@ -1876,6 +1892,8 @@ id counterclockwise
 id custom
 id customPanel
 id cut
+id cvDocument
+id cvFace
 id dark
 id date_picker_actions
 id decelerate
@@ -1958,12 +1976,12 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id image_face
 id info
 id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
+id ivFace
 id jumpToEnd
 id jumpToStart
 id labelGroup
@@ -2178,8 +2196,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvDocumentResult
+id tvNoPictures
 id tvPictureDescription
-id txt_result
 id unchecked
 id uniform
 id unlabeled
@@ -2347,6 +2366,7 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
@@ -2382,6 +2402,8 @@ string appbar_scrolling_view_behavior
 string back
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
+string button_document
+string button_face
 string camera_permission_denied
 string character_counter_content_description
 string character_counter_overflowed_content_description
@@ -2411,10 +2433,13 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string face_not_found
+string face_picture
 string face_position
 string hide_bottom_view_on_scroll_behavior
 string icon_back
 string icon_content_description
+string id_card
 string item_view_role_description
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -2466,6 +2491,7 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string no_pictures_yet
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -2474,6 +2500,7 @@ string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
 string take_picture
+string text_not_found
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow
@@ -2700,6 +2727,7 @@ style Base_Widget_MaterialComponents_Snackbar
 style Base_Widget_MaterialComponents_TextInputEditText
 style Base_Widget_MaterialComponents_TextInputLayout
 style Base_Widget_MaterialComponents_TextView
+style ButtonBlue
 style CardView
 style CardView_Dark
 style CardView_Light
