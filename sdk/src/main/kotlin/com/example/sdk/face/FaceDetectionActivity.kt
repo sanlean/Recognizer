@@ -18,6 +18,7 @@ class FaceDetectionActivity: CameraPreviewActivity() {
             previewView = binding.cameraPreview,
             cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
         )
+        binding.btnBack.setOnClickListener { finish() }
     }
 
     companion object{

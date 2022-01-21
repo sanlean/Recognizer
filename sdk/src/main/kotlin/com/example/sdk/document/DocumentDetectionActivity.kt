@@ -18,6 +18,7 @@ class DocumentDetectionActivity: CameraPreviewActivity() {
             previewView = binding.cameraPreview,
             cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
         )
+        binding.btnBack.setOnClickListener { finish() }
     }
 
     companion object{
