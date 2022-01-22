@@ -1,23 +1,15 @@
 package com.example.sdk.face
 
-import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.camera.core.CameraSelector
 import com.example.sdk.CameraPreviewActivity
 import com.example.sdk.databinding.ActivityFaceDetectionBinding
-import com.example.sdk.document.DocumentDetectionActivity
-import com.example.sdk.document.isTextEmpty
 import com.example.sdk.utils.cropBitmap
 import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.face.Face
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
-import com.google.mlkit.vision.text.TextRecognition
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
-class FaceDetectionActivity: CameraPreviewActivity() {
+internal class FaceDetectionActivity: CameraPreviewActivity() {
 
     private lateinit var binding: ActivityFaceDetectionBinding
 
@@ -66,13 +58,9 @@ class FaceDetectionActivity: CameraPreviewActivity() {
             }
     }
 
-    companion object{
+    internal companion object{
         private const val TAG = "FaceDetectionCamera"
-        private var faceListener: FaceListener? = null
-        fun start(context: Context, faceListener: FaceListener) {
-            FaceDetectionActivity.faceListener = faceListener
-            cameraRequestListener = faceListener
-            context.startActivity(Intent(context, FaceDetectionActivity::class.java))
-        }
+        var faceListener: FaceListener? = null
+
     }
 }

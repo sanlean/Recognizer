@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.example.sdk.document.DocumentDetectionActivity
+import com.example.sdk.SdkRouter
 import com.example.sdk.document.DocumentListener
-import com.example.sdk.face.FaceDetectionActivity
 import com.example.sdk.face.FaceListener
 import com.example.testapp.databinding.ActivityMainBinding
 
@@ -31,10 +30,10 @@ class MainActivity : AppCompatActivity(), DocumentListener, FaceListener {
 
     private fun setupButtons(){
         binding.btnReadDocument.setOnClickListener {
-            DocumentDetectionActivity.start(this, this)
+            SdkRouter.startDocumentDetection(this, this)
         }
         binding.btnDetectFace.setOnClickListener {
-            FaceDetectionActivity.start(this, this)
+            SdkRouter.startFaceDetection(this, this)
         }
     }
 
