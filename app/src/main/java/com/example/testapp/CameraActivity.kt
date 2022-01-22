@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+@Deprecated("Instead of this, use the SDK DocumentDetectionActivity and FaceDetectionActivity")
 class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
 
@@ -74,7 +75,7 @@ class CameraActivity : AppCompatActivity() {
 
         // Set up image capture listener, which is triggered after photo has
         // been taken
-        imageCapture!!.takePicture(
+        imageCapture?.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {

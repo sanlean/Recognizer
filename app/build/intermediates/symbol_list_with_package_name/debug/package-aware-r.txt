@@ -1355,6 +1355,7 @@ dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
 dimen margin_10
 dimen margin_16
+dimen margin_2
 dimen margin_20
 dimen margin_56
 dimen margin_60
@@ -1854,6 +1855,7 @@ id bottom
 id bounce
 id btnBack
 id btnDetectFace
+id btnLoading
 id btnReadDocument
 id btnTakePicture
 id buttonPanel
@@ -2072,6 +2074,7 @@ id parent_matrix
 id password_toggle
 id path
 id pathRelative
+id pbLoading
 id peekHeight
 id percent
 id performance
@@ -2365,6 +2368,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout view_loading_button
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -2497,6 +2501,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string photo_prefix
 string search_menu_title
 string status_bar_notification_info_overflow
 string take_picture
@@ -3289,6 +3294,7 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable LinearProgressIndicator indeterminateAnimationType indicatorDirectionLinear
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
+styleable LoadingButton android_text
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
 styleable MaterialAlertDialog backgroundInsetBottom backgroundInsetEnd backgroundInsetStart backgroundInsetTop
 styleable MaterialAlertDialogTheme materialAlertDialogBodyTextStyle materialAlertDialogTheme materialAlertDialogTitleIconStyle materialAlertDialogTitlePanelStyle materialAlertDialogTitleTextStyle

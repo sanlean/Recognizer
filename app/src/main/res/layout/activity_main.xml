@@ -8,89 +8,101 @@
     android:background="@drawable/bg_main"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvFace"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_20"
-        android:layout_marginStart="@dimen/margin_56"
-        android:layout_marginEnd="@dimen/margin_56"
-        app:cardCornerRadius="@dimen/margin_20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/margin_8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnReadDocument">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/face_picture"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_gravity="center"
-                android:textColor="?colorPrimaryVariant"
-                android:textStyle="bold"
-                android:textAllCaps="true"/>
-
-            <ImageView
-                android:id="@+id/ivFace"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/size_200"
-                android:layout_margin="@dimen/margin_8"
-                tools:src="@drawable/mona_lisa" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvDocument"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_8"
-        android:layout_marginStart="@dimen/margin_56"
-        android:layout_marginEnd="@dimen/margin_56"
-        app:cardCornerRadius="@dimen/margin_20"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvFace">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/id_card"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_gravity="center"
-                android:textColor="?colorPrimaryVariant"
-                android:textStyle="bold"
-                android:textAllCaps="true"/>
-
-            <TextView
-                android:id="@+id/tvDocumentResult"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvFace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:gravity="top|center"
-                android:minLines="3"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_16"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnDetectFace"
-                tools:text="Result text here" />
+                android:layout_marginTop="@dimen/margin_20"
+                android:layout_marginStart="@dimen/margin_56"
+                android:layout_marginEnd="@dimen/margin_56"
+                app:cardCornerRadius="@dimen/margin_20"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/face_picture"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_gravity="center"
+                        android:textColor="?colorPrimaryVariant"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"/>
+
+                    <ImageView
+                        android:id="@+id/ivFace"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size_200"
+                        android:layout_margin="@dimen/margin_8"
+                        tools:src="@drawable/mona_lisa" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvDocument"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginStart="@dimen/margin_56"
+                android:layout_marginEnd="@dimen/margin_56"
+                app:cardCornerRadius="@dimen/margin_20"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/id_card"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:layout_gravity="center"
+                        android:textColor="?colorPrimaryVariant"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"/>
+
+                    <TextView
+                        android:id="@+id/tvDocumentResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:gravity="top|center"
+                        android:minLines="3"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_16"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnDetectFace"
+                        tools:text="Result text here" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 
     <TextView
         android:id="@+id/tvNoPictures"
