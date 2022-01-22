@@ -48,13 +48,11 @@
         android:textSize="@dimen/font_18"
         app:layout_constraintBottom_toTopOf="@id/btnTakePicture" />
 
-    <Button
+    <com.example.sdk.LoadingButton
         android:id="@+id/btnTakePicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/take_picture"
-        android:background="@drawable/bg_button_camera"
-        android:textColor="@color/blue_not_transparent"
         android:layout_margin="@dimen/margin_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
