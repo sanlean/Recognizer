@@ -1,0 +1,19 @@
+<resources>
+    <!-- MainActivity -->
+    <string name="camera_permission_denied">Permissão de câmera negada</string>
+    <string name="button_document">Leia textos do seu cartão de identidade</string>
+    <string name="button_face">Detectar rosto</string>
+    <string name="face_picture">Foto do rosto</string>
+    <string name="id_card">Cartão de identidade</string>
+    <string name="no_pictures_yet">Tire fotos da sua identidade e do seu rosto</string>
+
+    <!-- Exceptions handled -->
+    <string name="face_not_found">Nã foi possível identificar seu rosto, tente novamente</string>
+    <string name="many_faces_found">Mais de um rosto identificado, por favor tire a foto de somente um rosto</string>
+    <string name="text_not_found">Não foi possível identificar cartão de identidade com texto, tente novamente</string>
+
+    <!-- Error messages -->
+    <string name="error_loading_camera">Desculpe, a câmera não pode ser iniciada</string>
+    <string name="error_taking_picture">Desculpe, não foi possível tirar foto com este dispositivo</string>
+    <string name="error_processing_image">Desculpe, não foi possível processar a foto. Tente novamente mais tarde</string>
+</resources>

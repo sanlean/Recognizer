@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Recognizer</string>
+    <string name="app_name" translatable="false">Recognizer</string>
+
+    <!-- MainActivity -->
     <string name="camera_permission_denied">Camera permission denied</string>
     <string name="button_document">Read text from ID card</string>
     <string name="button_face">Detect face</string>
@@ -8,7 +10,7 @@
     <string name="no_pictures_yet">Take pictures from your face and ID card</string>
 
     <!-- Exceptions handled -->
-    <string name="face_not_found">Couldn\'t found any face, try again</string>
+    <string name="face_not_found">Couldn\'t identify your face, try again</string>
     <string name="many_faces_found">More than one face found, please take picture of only one face</string>
     <string name="text_not_found">Couldn\'t found any document with text, try again</string>
 
