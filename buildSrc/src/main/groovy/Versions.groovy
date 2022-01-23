@@ -23,6 +23,8 @@ class Versions{
 
     //Databases
     public static final room = '2.3.0-alpha02'
+    public static final robolectric = '4.6'
+    public static final truth = '1.1.3'
 
     //Dependency injection
     public static final hilt = '2.28-alpha'

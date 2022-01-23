@@ -36,6 +36,8 @@ class Deps{
     public static final unitTests = [
             junit: "junit:junit:$Versions.junit",
             roomTests: "androidx.room:room-testing:$Versions.room",
+            robolectric: "org.robolectric:robolectric:$Versions.robolectric",
+            truth: "com.google.truth:truth:$Versions.truth",
             androidCore: "android.arch.core:core-testing:$Versions.coreTesting",
             mockk: "io.mockk:mockk:$Versions.mockk"
     ]

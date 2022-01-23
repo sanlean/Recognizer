@@ -38,6 +38,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -59,6 +64,9 @@ dependencies {
     implementation Deps.machineLearningGoogleKit.faceDetection
 
     testImplementation Deps.unitTests.junit
+    testImplementation Deps.unitTests.mockk
+    testImplementation Deps.unitTests.robolectric
+    testImplementation Deps.unitTests.truth
     androidTestImplementation Deps.instrumentedTests.junit
     androidTestImplementation Deps.instrumentedTests.espresso
 }
