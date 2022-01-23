@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'jacoco'
 }
 
 android {
@@ -42,6 +43,7 @@ android {
         unitTests {
             includeAndroidResources = true
         }
+        unitTests.returnDefaultValues = true
     }
 }
 
@@ -63,10 +65,16 @@ dependencies {
     implementation Deps.machineLearningGoogleKit.textRecognition
     implementation Deps.machineLearningGoogleKit.faceDetection
 
-    testImplementation Deps.unitTests.junit
-    testImplementation Deps.unitTests.mockk
-    testImplementation Deps.unitTests.robolectric
-    testImplementation Deps.unitTests.truth
-    androidTestImplementation Deps.instrumentedTests.junit
-    androidTestImplementation Deps.instrumentedTests.espresso
+    testImplementation Deps.tests.junit
+    testImplementation Deps.tests.mockk
+    testImplementation Deps.tests.mockito
+    testImplementation Deps.tests.truth
+    testImplementation Deps.tests.androidCore
+    testImplementation Deps.tests.coreKtx
+    testImplementation Deps.tests.runner
+    testImplementation Deps.tests.rules
+    testImplementation Deps.tests.robolectric
+    testImplementation Deps.tests.coroutines
+    androidTestImplementation Deps.tests.junit
+    androidTestImplementation Deps.tests.espresso
 }
