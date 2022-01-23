@@ -1,12 +1,12 @@
-package com.example.sdk.camera
+package com.example.sdk.presentation.camera
 
 import android.os.Build
 import androidx.camera.view.PreviewView
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
-import com.example.sdk.enum.ErrorType
 import com.example.sdk.enum.ErrorType.CAMERA_LOADING_ERROR
+import com.example.sdk.listeners.CameraRequestListener
 import com.google.common.truth.Truth.assertThat
 import io.mockk.*
 import org.junit.Before

@@ -1,4 +1,4 @@
-package com.example.sdk.camera
+package com.example.sdk.presentation.camera
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -9,6 +9,7 @@ import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.sdk.enum.ErrorType
+import com.example.sdk.listeners.CameraRequestListener
 
 internal open class CameraPreviewActivity : AppCompatActivity() {
 

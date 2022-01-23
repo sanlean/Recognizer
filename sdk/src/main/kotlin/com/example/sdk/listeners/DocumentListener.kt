@@ -1,6 +1,6 @@
-package com.example.sdk.document
+package com.example.sdk.listeners
 
-import com.example.sdk.camera.CameraRequestListener
+import com.example.sdk.listeners.CameraRequestListener
 
 interface DocumentListener: CameraRequestListener {
     fun textFoundOnDocument(text: String)

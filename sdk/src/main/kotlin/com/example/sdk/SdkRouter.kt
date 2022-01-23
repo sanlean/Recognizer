@@ -2,11 +2,11 @@ package com.example.sdk
 
 import android.content.Context
 import android.content.Intent
-import com.example.sdk.camera.CameraPreviewActivity
-import com.example.sdk.document.DocumentDetectionActivity
-import com.example.sdk.document.DocumentListener
-import com.example.sdk.face.FaceDetectionActivity
-import com.example.sdk.face.FaceListener
+import com.example.sdk.presentation.camera.CameraPreviewActivity
+import com.example.sdk.presentation.document.DocumentDetectionActivity
+import com.example.sdk.listeners.DocumentListener
+import com.example.sdk.presentation.face.FaceDetectionActivity
+import com.example.sdk.listeners.FaceListener
 
 object SdkRouter {
 

@@ -1,4 +1,4 @@
-package com.example.sdk.camera
+package com.example.sdk.listeners
 
 import com.example.sdk.enum.ErrorType
 

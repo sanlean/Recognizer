@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.sdk.enum.ErrorType
 import com.example.sdk.SdkRouter
-import com.example.sdk.document.DocumentListener
-import com.example.sdk.face.FaceListener
+import com.example.sdk.listeners.DocumentListener
+import com.example.sdk.listeners.FaceListener
 import com.example.testapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), DocumentListener, FaceListener {

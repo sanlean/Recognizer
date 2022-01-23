@@ -1,11 +1,12 @@
-package com.example.sdk.document
+package com.example.sdk.presentation.document
 
 import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
-import com.example.sdk.camera.CameraPreviewActivity
+import com.example.sdk.presentation.camera.CameraPreviewActivity
 import com.example.sdk.databinding.ActivityDocumentDetectionBinding
 import com.example.sdk.enum.*
 import com.example.sdk.enum.ErrorType.*
+import com.example.sdk.listeners.DocumentListener
 
 internal class DocumentDetectionActivity : CameraPreviewActivity() {
 

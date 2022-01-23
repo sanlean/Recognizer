@@ -1,4 +1,4 @@
-package com.example.sdk.camera
+package com.example.sdk.presentation.camera
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity

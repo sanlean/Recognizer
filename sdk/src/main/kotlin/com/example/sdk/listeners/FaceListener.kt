@@ -1,7 +1,6 @@
-package com.example.sdk.face
+package com.example.sdk.listeners
 
 import android.graphics.Bitmap
-import com.example.sdk.camera.CameraRequestListener
 
 interface FaceListener: CameraRequestListener {
     fun facePictureFound(facePicture: Bitmap)

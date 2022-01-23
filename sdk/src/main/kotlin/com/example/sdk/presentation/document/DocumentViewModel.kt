@@ -1,9 +1,9 @@
-package com.example.sdk.document
+package com.example.sdk.presentation.document
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.sdk.camera.CameraViewModel
+import com.example.sdk.presentation.camera.CameraViewModel
 import com.example.sdk.domain.CameraBindUseCase
 import com.example.sdk.domain.CameraProviderUseCase
 import com.example.sdk.domain.ProcessTextUseCase

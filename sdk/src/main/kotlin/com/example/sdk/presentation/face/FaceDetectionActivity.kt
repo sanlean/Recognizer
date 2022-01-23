@@ -1,12 +1,13 @@
-package com.example.sdk.face
+package com.example.sdk.presentation.face
 
 import android.graphics.Bitmap
 import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
 import com.example.sdk.enum.ErrorType.*
-import com.example.sdk.camera.CameraPreviewActivity
+import com.example.sdk.presentation.camera.CameraPreviewActivity
 import com.example.sdk.databinding.ActivityFaceDetectionBinding
 import com.example.sdk.enum.*
+import com.example.sdk.listeners.FaceListener
 
 internal class FaceDetectionActivity: CameraPreviewActivity() {
 

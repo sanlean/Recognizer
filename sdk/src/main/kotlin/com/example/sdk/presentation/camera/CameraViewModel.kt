@@ -1,9 +1,8 @@
-package com.example.sdk.camera
+package com.example.sdk.presentation.camera
 
 import android.content.Context
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
-import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.lifecycle.*
 import com.example.sdk.domain.CameraBindUseCase
