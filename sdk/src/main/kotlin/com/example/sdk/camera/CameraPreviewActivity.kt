@@ -47,13 +47,13 @@ internal open class CameraPreviewActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    protected fun getPreview(previewView: PreviewView) = Preview.Builder()
+    fun getPreview(previewView: PreviewView) = Preview.Builder()
         .build()
         .also {
             it.setSurfaceProvider(previewView.surfaceProvider)
         }
 
-    protected fun updateError(e: Throwable, errorType: ErrorType){
+    fun updateError(e: Throwable, errorType: ErrorType){
         e.printStackTrace()
         cameraRequestListener?.errorProcessingImage(errorType)
         finish()
