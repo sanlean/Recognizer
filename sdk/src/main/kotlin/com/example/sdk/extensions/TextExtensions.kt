@@ -1,4 +1,4 @@
-package com.example.sdk.document
+package com.example.sdk.extensions
 
 import com.google.mlkit.vision.text.Text
 
