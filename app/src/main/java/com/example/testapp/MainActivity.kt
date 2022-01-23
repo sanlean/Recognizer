@@ -3,8 +3,10 @@ package com.example.testapp
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.example.sdk.ErrorType
 import com.example.sdk.SdkRouter
 import com.example.sdk.document.DocumentListener
 import com.example.sdk.face.FaceListener
@@ -57,7 +59,20 @@ class MainActivity : AppCompatActivity(), DocumentListener, FaceListener {
         Toast.makeText(this, R.string.face_not_found, Toast.LENGTH_LONG).show()
     }
 
+    override fun moreThanOneFaceFound() {
+        Toast.makeText(this, R.string.many_faces_found, Toast.LENGTH_LONG).show()
+    }
+
     override fun cameraPermissionDenied() {
         Toast.makeText(this, R.string.camera_permission_denied, Toast.LENGTH_LONG).show()
+    }
+
+    override fun errorProcessingImage(errorType: ErrorType) {
+        @StringRes val errorMessageId = when(errorType){
+            ErrorType.CAMERA_LOADING_ERROR -> R.string.error_loading_camera
+            ErrorType.CAPTURE_PICTURE_ERROR -> R.string.error_taking_picture
+            ErrorType.PROCESSING_IMAGE_ERROR -> R.string.error_processing_image
+        }
+        Toast.makeText(this, errorMessageId, Toast.LENGTH_LONG).show()
     }
 }
