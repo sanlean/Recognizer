@@ -14,6 +14,13 @@ class Deps{
             multidex: "androidx.multidex:multidex:$Versions.multidex"
     ]
 
+    public static final lifecycle = [
+            viewModel: "androidx.lifecycle:lifecycle-viewmodel:$Versions.lifecycle",
+            viewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$Versions.lifecycle",
+            liveData: "androidx.lifecycle:lifecycle-livedata:$Versions.lifecycle",
+            activityKtx: "androidx.activity:activity-ktx:$Versions.activityKtx"
+    ]
+
     public static final design = [
             material: "com.google.android.material:material:$Versions.material",
             paging: "androidx.paging:paging-runtime:$Versions.paging",

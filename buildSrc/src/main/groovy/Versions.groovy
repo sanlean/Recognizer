@@ -17,6 +17,10 @@ class Versions{
     public static final paging = '3.0.0-alpha07'
     public static final material = '1.3.0'
 
+    //Lifecycle
+    public static final lifecycle = '2.4.0'
+    public static final activityKtx = "1.4.0"
+
     //Databases
     public static final room = '2.3.0-alpha02'
 
@@ -27,7 +31,7 @@ class Versions{
 
     //Tests
     public static final junit = '4.13'
-    public static final coreTesting = '1.1.0'
+    public static final coreTesting = '2.1.0'
     public static final mockk = '1.9.1'
 
     //Android tests
