@@ -3,7 +3,8 @@ package com.example.sdk.document
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.sdk.*
+import com.example.sdk.camera.CameraViewModel
+import com.example.sdk.enum.*
 import com.example.sdk.extensions.isTextEmpty
 import com.example.sdk.extensions.processText
 import com.google.mlkit.vision.common.InputImage

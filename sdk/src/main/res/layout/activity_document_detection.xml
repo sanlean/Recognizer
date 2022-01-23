@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.example.sdk.CameraOverlayView
+    <com.example.sdk.customviews.CameraOverlayView
         android:id="@+id/documentOverlayView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +47,7 @@
         android:textSize="@dimen/font_18"
         app:layout_constraintBottom_toTopOf="@id/btnTakePicture" />
 
-    <com.example.sdk.LoadingButton
+    <com.example.sdk.customviews.LoadingButton
         android:id="@+id/btnTakePicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

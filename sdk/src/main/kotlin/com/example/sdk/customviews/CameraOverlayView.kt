@@ -1,4 +1,4 @@
-package com.example.sdk
+package com.example.sdk.customviews
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,6 +8,7 @@ import android.graphics.RectF
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
+import com.example.sdk.R
 
 class CameraOverlayView @JvmOverloads constructor(
     context: Context,
@@ -89,13 +90,6 @@ class CameraOverlayView @JvmOverloads constructor(
         val y1 = y0 + ((x1 - x0) / aspectRatio)
         return RectF(x0, y0, x1, y1)
     }
-
-    fun getFrameParameters()  = FrameParameters(
-        width = getFrameRecF().let { it.right-it.left }.toInt(),
-        horizontalMarginPercentage = horizontalMarginPercent,
-        topMarginPercentage = topMarginPercent,
-        aspectRatio = aspectRatio
-    )
 
     private fun drawFaceBackground(canvas: Canvas, path: Path, paint: Paint, frame: RectF) {
         path.addOval(frame, Path.Direction.CW)

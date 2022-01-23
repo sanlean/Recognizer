@@ -1,16 +1,14 @@
-package com.example.sdk
+package com.example.sdk.camera
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.Preview
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.sdk.document.DocumentDetectionActivity
-
+import com.example.sdk.enum.ErrorType
 
 internal open class CameraPreviewActivity : AppCompatActivity() {
 

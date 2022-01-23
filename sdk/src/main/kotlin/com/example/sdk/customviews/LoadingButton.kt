@@ -1,4 +1,4 @@
-package com.example.sdk
+package com.example.sdk.customviews
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
+import com.example.sdk.R
 
 class LoadingButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): ConstraintLayout(context, attrs, defStyleAttr) {
 

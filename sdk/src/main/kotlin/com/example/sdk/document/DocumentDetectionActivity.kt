@@ -2,10 +2,10 @@ package com.example.sdk.document
 
 import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
-import com.example.sdk.*
-import com.example.sdk.CameraPreviewActivity
+import com.example.sdk.camera.CameraPreviewActivity
 import com.example.sdk.databinding.ActivityDocumentDetectionBinding
-import com.example.sdk.ErrorType.*
+import com.example.sdk.enum.*
+import com.example.sdk.enum.ErrorType.*
 
 internal class DocumentDetectionActivity : CameraPreviewActivity() {
 

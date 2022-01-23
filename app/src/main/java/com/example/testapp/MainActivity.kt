@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.example.sdk.ErrorType
+import com.example.sdk.enum.ErrorType
 import com.example.sdk.SdkRouter
 import com.example.sdk.document.DocumentListener
 import com.example.sdk.face.FaceListener

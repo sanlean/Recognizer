@@ -2,6 +2,7 @@ package com.example.sdk
 
 import android.content.Context
 import android.content.Intent
+import com.example.sdk.camera.CameraPreviewActivity
 import com.example.sdk.document.DocumentDetectionActivity
 import com.example.sdk.document.DocumentListener
 import com.example.sdk.face.FaceDetectionActivity

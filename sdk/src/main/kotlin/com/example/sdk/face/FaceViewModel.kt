@@ -3,8 +3,8 @@ package com.example.sdk.face
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.sdk.*
-import com.example.sdk.CameraViewModel
+import com.example.sdk.camera.CameraViewModel
+import com.example.sdk.enum.*
 import com.example.sdk.extensions.cropBitmap
 import com.example.sdk.extensions.processFace
 import com.google.mlkit.vision.common.InputImage

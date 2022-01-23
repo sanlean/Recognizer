@@ -1,4 +1,4 @@
-package com.example.sdk
+package com.example.sdk.camera
 
 import android.content.Context
 import androidx.camera.core.CameraSelector
@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.sdk.enum.*
 import com.example.sdk.extensions.getCameraProvider
 import com.example.sdk.extensions.takePicture
 import kotlinx.coroutines.launch

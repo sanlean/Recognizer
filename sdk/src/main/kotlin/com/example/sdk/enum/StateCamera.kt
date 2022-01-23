@@ -1,4 +1,4 @@
-package com.example.sdk
+package com.example.sdk.enum
 
 import android.graphics.Bitmap
 import com.google.mlkit.vision.common.InputImage

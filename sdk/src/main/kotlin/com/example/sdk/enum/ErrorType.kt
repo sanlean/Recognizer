@@ -1,11 +1,7 @@
-package com.example.sdk
-
-import java.lang.Exception
+package com.example.sdk.enum
 
 enum class ErrorType {
     CAMERA_LOADING_ERROR,
     CAPTURE_PICTURE_ERROR,
     PROCESSING_IMAGE_ERROR;
-
-    var error: Exception? = null
 }
