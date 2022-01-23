@@ -4,16 +4,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.sdk.camera.CameraViewModel
+import com.example.sdk.domain.CameraBindUseCase
+import com.example.sdk.domain.CameraProviderUseCase
+import com.example.sdk.domain.ProcessFaceUseCase
+import com.example.sdk.domain.TakePictureUseCase
 import com.example.sdk.enum.*
 import com.example.sdk.extensions.cropBitmap
-import com.example.sdk.extensions.processFace
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
-internal class FaceViewModel: CameraViewModel() {
+internal class FaceViewModel(
+    private val processFaceUseCase: ProcessFaceUseCase,
+    cameraProviderUseCase: CameraProviderUseCase,
+    cameraBindUseCase: CameraBindUseCase,
+    takePictureUseCase: TakePictureUseCase
+) : CameraViewModel(cameraProviderUseCase, cameraBindUseCase, takePictureUseCase) {
 
     private val _faceLiveData = MutableLiveData<StateFace>()
     val faceLiveData: LiveData<StateFace> = _faceLiveData
@@ -29,7 +36,7 @@ internal class FaceViewModel: CameraViewModel() {
         val detector = FaceDetection.getClient(highAccuracyOpts)
         viewModelScope.launch {
             try {
-                val faces = detector.processFace(image)
+                val faces = processFaceUseCase(detector, image)
                 when(faces.size) {
                     0 -> _faceLiveData.value = NoFace
                     1 -> {

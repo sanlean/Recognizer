@@ -5,19 +5,21 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.sdk.domain.CameraBindUseCase
+import com.example.sdk.domain.CameraProviderUseCase
+import com.example.sdk.domain.TakePictureUseCase
 import com.example.sdk.enum.*
-import com.example.sdk.extensions.getCameraProvider
-import com.example.sdk.extensions.takePicture
 import kotlinx.coroutines.launch
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-internal open class CameraViewModel : ViewModel() {
+internal open class CameraViewModel(
+    private val cameraProviderUseCase: CameraProviderUseCase,
+    private val cameraBindUseCase: CameraBindUseCase,
+    private val takePictureUseCase: TakePictureUseCase
+) : ViewModel() {
+
     private val imageCapture: ImageCapture = ImageCapture.Builder().build()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -32,14 +34,14 @@ internal open class CameraViewModel : ViewModel() {
     ) {
         _liveData.value = LoadingCamera
         viewModelScope.launch {
-            val cameraProvider = context.getCameraProvider(executor)
+            val cameraProvider = cameraProviderUseCase(context, executor)
             try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    lifecycleOwner, cameraSelector, cameraPreview, imageCapture
+                cameraBindUseCase(
+                    lifecycleOwner,
+                    cameraProvider,
+                    cameraSelector,
+                    cameraPreview,
+                    imageCapture
                 )
                 _liveData.value = CameraLoaded
 
@@ -53,9 +55,9 @@ internal open class CameraViewModel : ViewModel() {
         _liveData.value = LoadingTakingPicture
         viewModelScope.launch {
             try {
-                val image = imageCapture.takePicture(executor)
+                val image = takePictureUseCase(imageCapture, executor)
                 _liveData.value = PictureTaken(image)
-            }catch (e: ImageCaptureException){
+            } catch (e: Exception) {
                 _liveData.value = ErrorTakingPicture(e)
             }
         }
