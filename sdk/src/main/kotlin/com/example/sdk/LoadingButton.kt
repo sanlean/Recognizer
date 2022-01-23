@@ -30,10 +30,19 @@ class LoadingButton @JvmOverloads constructor(context: Context, attrs: Attribute
     fun setClickListener(clickListener: () -> Unit) {
         button.setOnClickListener {
             clickListener()
-            button.isEnabled = false
-            button.text = null
-            loading.isVisible = true
         }
+    }
+
+    fun showLoading() {
+        button.isEnabled = false
+        button.text = null
+        loading.isVisible = true
+    }
+
+    fun hideLoading() {
+        button.isEnabled = true
+        button.text = text
+        loading.isVisible = false
     }
 
 }
