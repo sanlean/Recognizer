@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sdk">
+
+    <application>
+        <activity android:name="com.example.sdk.presentation.document.DocumentDetectionActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.example.sdk.presentation.face.FaceDetectionActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.example.sdk.presentation.camera.CameraPreviewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'jacoco'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation Deps.kotlinLibs.stdlib
+    implementation Deps.support.appcompat
+    implementation Deps.support.corektx
+    implementation Deps.design.material
+
+    implementation Deps.lifecycle.viewModel
+    implementation Deps.lifecycle.viewModelKtx
+    implementation Deps.lifecycle.liveData
+    implementation Deps.lifecycle.activityKtx
+
+    implementation Deps.camera.camera2
+    implementation Deps.camera.cameraLifecycle
+    implementation Deps.camera.cameraView
+
+    implementation Deps.machineLearningGoogleKit.textRecognition
+    implementation Deps.machineLearningGoogleKit.faceDetection
+
+    testImplementation Deps.tests.junit
+    testImplementation Deps.tests.mockk
+    testImplementation Deps.tests.mockito
+    testImplementation Deps.tests.truth
+    testImplementation Deps.tests.androidCore
+    testImplementation Deps.tests.coreKtx
+    testImplementation Deps.tests.runner
+    testImplementation Deps.tests.rules
+    testImplementation Deps.tests.robolectric
+    testImplementation Deps.tests.coroutines
+    androidTestImplementation Deps.tests.junit
+    androidTestImplementation Deps.tests.espresso
+}

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.testapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -16,11 +16,12 @@
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
-            android:value="ocr" />
-        <!-- To use multiple models: android:value="ocr,model2,model3" -->
+            android:value="ocr,face" />
 
-        <activity android:name=".CameraActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".CameraActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

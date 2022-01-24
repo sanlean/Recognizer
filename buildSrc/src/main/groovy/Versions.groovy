@@ -17,39 +17,25 @@ class Versions{
     public static final paging = '3.0.0-alpha07'
     public static final material = '1.3.0'
 
-    //Databases
-    public static final room = '2.3.0-alpha02'
-
-    //Dependency injection
-    public static final hilt = '2.28-alpha'
-    public static final hiltLifecycle = '1.0.0-alpha01'
-    public static final lifecycleCompiler = '2.2.0'
+    //Lifecycle
+    public static final lifecycle = '2.4.0'
+    public static final activityKtx = "1.4.0"
 
     //Tests
-    public static final junit = '4.13'
-    public static final coreTesting = '1.1.0'
-    public static final mockk = '1.9.1'
-
-    //Android tests
-    public static final jUnit = '1.1.2'
-    public static final espresso = '3.3.0'
+    public static final robolectric = '4.6'
+    public static final junit = '1.1.3'
+    public static final coreTesting = '2.1.0'
+    public static final coreKtxTest = '1.4.0'
+    public static final mockk = '1.12.1'
+    public static final mockito = '4.2.0'
+    public static final truth = '1.4.0'
+    public static final runner = '1.4.0'
+    public static final rules = '1.4.0'
+    public static final espresso = '3.4.0'
+    public static final coroutinesTest = '1.4.2'
 
     //Kotlin libraries
     public static final stdlib = '1.4.32'
-
-    //Parsers
-    public static final gson = '2.8.6'
-
-    //Networking
-    public static final retrofit = '2.9.0'
-    public static final okhttp = '4.9.0'
-
-    //ReactiveX
-    public static final rxjava = '2.1.1'
-    public static final rxjavaRetrofitAdapter = '3.0.0'
-
-    //Image fetch and processing
-    public static final picasso = '2.71828'
 
     //Camera
     public static final cameraX = '1.0.0'

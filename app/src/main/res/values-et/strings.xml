@@ -1,0 +1,19 @@
+<resources>
+    <!-- MainActivity -->
+    <string name="camera_permission_denied">Kaamera luba on keelatud</string>
+    <string name="button_document">Loe isikutunnistuselt teksti</string>
+    <string name="button_face">Tuvastage nägu</string>
+    <string name="face_picture">Näo pilt</string>
+    <string name="id_card">Isikutunnistus</string>
+    <string name="no_pictures_yet">Pildistage oma nägu ja isikutunnistus</string>
+
+    <!-- Exceptions handled -->
+    <string name="face_not_found">Teie nägu ei õnnestunud tuvastada, proovige uuesti</string>
+    <string name="many_faces_found">Leiti rohkem kui üks nägu, palun pildistage ainult üks nägu</string>
+    <string name="text_not_found">Tekstiga dokumenti ei leitud, proovige uuesti</string>
+
+    <!-- Error messages -->
+    <string name="error_loading_camera">Kahjuks ei saanud kaamera riistvara laadida</string>
+    <string name="error_taking_picture">Kahjuks ei saanud selle seadmega pilti teha</string>
+    <string name="error_processing_image">Kahjuks ei saanud pilti töödelda. Proovige hiljem uuesti</string>
+</resources>

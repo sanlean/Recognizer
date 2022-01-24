@@ -14,56 +14,35 @@ class Deps{
             multidex: "androidx.multidex:multidex:$Versions.multidex"
     ]
 
+    public static final lifecycle = [
+            viewModel: "androidx.lifecycle:lifecycle-viewmodel:$Versions.lifecycle",
+            viewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:$Versions.lifecycle",
+            liveData: "androidx.lifecycle:lifecycle-livedata:$Versions.lifecycle",
+            activityKtx: "androidx.activity:activity-ktx:$Versions.activityKtx"
+    ]
+
     public static final design = [
             material: "com.google.android.material:material:$Versions.material",
             paging: "androidx.paging:paging-runtime:$Versions.paging",
             pagingRxjava: "androidx.paging:paging-rxjava2:$Versions.paging"
     ]
 
-    public static final database = [
-            room: "androidx.room:room-runtime:$Versions.room",
-            roomKotlin: "androidx.room:room-ktx:$Versions.room",
-            roomRxJava: "androidx.room:room-rxjava2:$Versions.room"
-    ]
-
-    public static final unitTests = [
-            junit: "junit:junit:$Versions.junit",
-            roomTests: "androidx.room:room-testing:$Versions.room",
-            androidCore: "android.arch.core:core-testing:$Versions.coreTesting",
-            mockk: "io.mockk:mockk:$Versions.mockk"
-    ]
-
-    public static final instrumentedTests = [
-            junit: "androidx.test.ext:junit:$Versions.jUnit",
-            espresso: "androidx.test.espresso:espresso-core:$Versions.espresso"
+    public static final tests = [
+            junit: "androidx.test.ext:junit:$Versions.junit",
+            robolectric: "org.robolectric:robolectric:$Versions.robolectric",
+            truth: "androidx.test.ext:truth:$Versions.truth",
+            androidCore: "androidx.arch.core:core-testing:$Versions.coreTesting",
+            coreKtx: "androidx.test:core-ktx:$Versions.coreKtxTest",
+            mockk: "io.mockk:mockk:$Versions.mockk",
+            mockito: "org.mockito:mockito-core:$Versions.mockito",
+            runner: "androidx.test:runner:$Versions.runner",
+            rules: "androidx.test:rules:$Versions.rules",
+            espresso: "androidx.test.espresso:espresso-core:$Versions.espresso",
+            coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$Versions.coroutinesTest"
     ]
 
     public static final kotlinLibs = [
             stdlib: "org.jetbrains.kotlin:kotlin-stdlib:$Versions.stdlib",
-    ]
-
-    public static final networking = [
-            retorfit: "com.squareup.retrofit2:retrofit:$Versions.retrofit",
-            gsonConverter: "com.squareup.retrofit2:converter-gson:$Versions.retrofit",
-            okhttp: "com.squareup.okhttp3:okhttp:$Versions.okhttp",
-            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$Versions.okhttp"
-    ]
-
-    public static final compilers = [
-            roomCompiler: "android.arch.persistence.room:compiler:$Versions.room",
-            daggerCompiler: "com.google.dagger:hilt-android-compiler:$Versions.hilt",
-            hiltCompiler: "androidx.hilt:hilt-compiler:$Versions.hiltLifecycle",
-            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:$Versions.lifecycleCompiler"
-    ]
-
-    public static final dependencyInjection = [
-            hilt: "com.google.dagger:hilt-android:$Versions.hilt",
-            hiltLifecycle: "androidx.hilt:hilt-lifecycle-viewmodel:$Versions.hiltLifecycle"
-    ]
-
-    public static final rxjava = [
-            rxjava: "io.reactivex.rxjava2:rxandroid:$Versions.rxjava",
-            rxjavaRetrofitAdapter: "com.squareup.retrofit2:adapter-rxjava2:$Versions.retrofit"
     ]
 
     public static final camera = [
@@ -77,6 +56,4 @@ class Deps{
             faceDetection: "com.google.android.gms:play-services-mlkit-face-detection:$Versions.faceDetection"
     ]
 
-    public static final picasso = "com.squareup.picasso:picasso:$Versions.picasso"
-    public static final gson = "com.google.code.gson:gson:$Versions.gson"
 }
