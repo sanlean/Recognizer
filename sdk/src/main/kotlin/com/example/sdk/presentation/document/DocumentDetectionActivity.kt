@@ -11,7 +11,7 @@ import com.example.sdk.listeners.DocumentListener
 internal class DocumentDetectionActivity : CameraPreviewActivity() {
 
     private lateinit var binding: ActivityDocumentDetectionBinding
-    private val viewModel: DocumentViewModel by viewModels()
+    private val viewModel: DocumentViewModel by viewModels{ DocumentViewModelProvider() }
 
     override fun create() {
         super.create()

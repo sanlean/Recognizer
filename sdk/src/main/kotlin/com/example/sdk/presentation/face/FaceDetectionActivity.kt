@@ -11,7 +11,7 @@ import com.example.sdk.listeners.FaceListener
 
 internal class FaceDetectionActivity: CameraPreviewActivity() {
 
-    private val viewModel: FaceViewModel by viewModels()
+    private val viewModel: FaceViewModel by viewModels{ FaceViewModelProvider() }
 
     private lateinit var binding: ActivityFaceDetectionBinding
 
