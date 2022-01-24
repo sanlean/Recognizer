@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="document_position">Asetage oma isikutunnistus ülal olevasse lahtrisse</string>
+    <string name="face_position">Asetage oma nägu ülal olevasse ruumi</string>
+    <string name="take_picture">Pilti teha</string>
+    <string name="back">Tagasi</string>
+</resources>

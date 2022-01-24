@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/cameraPreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.example.sdk.presentation.customviews.CameraOverlayView
+        android:id="@+id/faceOverlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:colorBackground="@color/blue_transparent"
+        app:overlayType="face"
+        app:horizontalMarginPercent="0.15"
+        app:aspectRatio="0.75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="@dimen/size_36"
+        android:layout_height="@dimen/size_36"
+        android:src="@drawable/ic_close"
+        android:background="@android:color/transparent"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_16"
+        android:contentDescription="@string/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPictureDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginEnd="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_60"
+        android:gravity="center"
+        android:text="@string/face_position"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_18"
+        app:layout_constraintBottom_toTopOf="@id/btnTakePicture" />
+
+    <com.example.sdk.presentation.customviews.LoadingButton
+        android:id="@+id/btnTakePicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/take_picture"
+        android:layout_margin="@dimen/margin_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

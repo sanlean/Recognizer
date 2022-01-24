@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="document_position">Posicione seu cartão de identidade no espaço acima</string>
+    <string name="face_position">Posicione seu rosto no espaço acima</string>
+    <string name="take_picture">Tirar foto</string>
+    <string name="back">Voltar</string>
+</resources>

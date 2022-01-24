@@ -16,25 +16,28 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.testapp.databinding.ActivityCameraBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import kotlinx.android.synthetic.main.activity_camera.*
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+@Deprecated("Instead of this, use the SDK DocumentDetectionActivity and FaceDetectionActivity")
 class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
 
+    private lateinit var binding: ActivityCameraBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera)
+        binding = ActivityCameraBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -46,7 +49,7 @@ class CameraActivity : AppCompatActivity() {
         }
 
         // Set up the listener for take photo button
-        camera_capture_button.setOnClickListener { takePhoto() }
+        binding.cameraCaptureButton.setOnClickListener { takePhoto() }
 
         outputDirectory = getOutputDirectory()
 
@@ -69,11 +72,12 @@ class CameraActivity : AppCompatActivity() {
         )
 
         // Create output options object which contains file + metadata
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile)
+            .build()
 
         // Set up image capture listener, which is triggered after photo has
         // been taken
-        imageCapture!!.takePicture(
+        imageCapture?.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
@@ -103,7 +107,6 @@ class CameraActivity : AppCompatActivity() {
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
         cameraProviderFuture.addListener(Runnable {
             // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
@@ -112,7 +115,7 @@ class CameraActivity : AppCompatActivity() {
             val preview = Preview.Builder()
                 .build()
                 .also {
-                    it.setSurfaceProvider(viewFinder.surfaceProvider)
+                    it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
                 }
 
             imageCapture = ImageCapture.Builder()

@@ -1,12 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+/.idea
 .DS_Store
 /build
 /captures
@@ -15,6 +10,8 @@
 local.properties
 /buildSrc/build
 /buildSrc/.gradle
+/app/build
+/sdk/buid
 
-build.gradle
+/build.gradle
 /gradle/wrapper/gradle-wrapper.properties
