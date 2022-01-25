@@ -1,24 +1,28 @@
 package com.example.sdk.presentation.face
 
 import android.graphics.Bitmap
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
+import androidx.camera.view.PreviewView
+import com.example.sdk.R
 import com.example.sdk.enum.ErrorType.*
 import com.example.sdk.presentation.camera.CameraPreviewActivity
-import com.example.sdk.databinding.ActivityFaceDetectionBinding
 import com.example.sdk.enum.*
 import com.example.sdk.listeners.FaceListener
+import com.example.sdk.presentation.customviews.LoadingButton
 
 internal class FaceDetectionActivity: CameraPreviewActivity() {
 
-    private val viewModel: FaceViewModel by viewModels{ FaceViewModelProvider() }
+    val viewModel: FaceViewModel by viewModels{ FaceViewModelProvider() }
 
-    private lateinit var binding: ActivityFaceDetectionBinding
+    private val faceCameraPreview: PreviewView by lazy { findViewById(R.id.faceCameraPreview) }
+    private val btnTakeFacePicture: LoadingButton by lazy { findViewById(R.id.btnTakeFacePicture) }
+    private val btnBack: Button by lazy { findViewById(R.id.btnBack) }
 
     override fun create() {
         super.create()
-        binding = ActivityFaceDetectionBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_face_detection)
         setupCameraObserver()
         setupFaceObserver()
         setupCamera()
@@ -30,13 +34,13 @@ internal class FaceDetectionActivity: CameraPreviewActivity() {
             context = this,
             lifecycleOwner = this,
             cameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA,
-            cameraPreview = getPreview(binding.cameraPreview)
+            cameraPreview = getPreview(faceCameraPreview)
         )
     }
 
     private fun setupButtons(){
-        binding.btnBack.setOnClickListener { finish() }
-        binding.btnTakePicture.setClickListener {
+        btnBack.setOnClickListener { finish() }
+        btnTakeFacePicture.setClickListener {
             viewModel.takePicture()
         }
     }
@@ -44,10 +48,10 @@ internal class FaceDetectionActivity: CameraPreviewActivity() {
     private fun setupCameraObserver(){
         viewModel.liveData.observe(this, { state ->
             when(state){
-                is LoadingCamera -> binding.btnTakePicture.showLoading()
-                is CameraLoaded -> binding.btnTakePicture.hideLoading()
+                is LoadingCamera -> btnTakeFacePicture.showLoading()
+                is CameraLoaded -> btnTakeFacePicture.hideLoading()
                 is ErrorLoadingCamera -> updateError(state.error, CAMERA_LOADING_ERROR)
-                is LoadingTakingPicture -> binding.btnTakePicture.showLoading()
+                is LoadingTakingPicture -> btnTakeFacePicture.showLoading()
                 is PictureTaken -> viewModel.processFace(state.image)
                 is ErrorTakingPicture -> updateError(state.error, CAPTURE_PICTURE_ERROR)
             }
@@ -57,7 +61,7 @@ internal class FaceDetectionActivity: CameraPreviewActivity() {
     private fun setupFaceObserver() {
         viewModel.faceLiveData.observe(this, { state ->
             when (state){
-                is ProcessingFace -> binding.btnTakePicture.showLoading()
+                is ProcessingFace -> btnTakeFacePicture.showLoading()
                 is FacePrecessed -> showFaceResult(state.bitmap)
                 is ErrorProcessingFace -> updateError(state.error, PROCESSING_IMAGE_ERROR)
                 is MoreThanOneFace -> showMoreThanOneFaceFound()

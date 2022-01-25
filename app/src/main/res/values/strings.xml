@@ -18,4 +18,5 @@
     <string name="error_loading_camera">Sorry, camera hardware could not be loaded</string>
     <string name="error_taking_picture">Sorry, was not possible to take a picture on this device</string>
     <string name="error_processing_image">Sorry, was not possible to process the image. Try again later</string>
+    <string name="ok">Ok</string>
 </resources>
