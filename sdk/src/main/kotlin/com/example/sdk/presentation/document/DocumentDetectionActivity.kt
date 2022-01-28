@@ -34,33 +34,33 @@ internal class DocumentDetectionActivity : CameraPreviewActivity() {
 
     private fun setupButtons(){
         binding.btnBack.setOnClickListener { finish() }
-        binding.btnTakePicture.setClickListener {
+        binding.btnTakeDocumentPicture.setClickListener {
             viewModel.takePicture()
         }
     }
 
     private fun setupCameraObserver() {
-        viewModel.liveData.observe(this, { state ->
-            when(state){
-                is LoadingCamera -> binding.btnTakePicture.showLoading()
-                is CameraLoaded -> binding.btnTakePicture.hideLoading()
-                is LoadingTakingPicture -> binding.btnTakePicture.showLoading()
+        viewModel.liveData.observe(this) { state ->
+            when (state) {
+                is LoadingCamera -> binding.btnTakeDocumentPicture.showLoading()
+                is CameraLoaded -> binding.btnTakeDocumentPicture.hideLoading()
+                is LoadingTakingPicture -> binding.btnTakeDocumentPicture.showLoading()
                 is ErrorLoadingCamera -> updateError(state.error, CAMERA_LOADING_ERROR)
                 is ErrorTakingPicture -> updateError(state.error, CAPTURE_PICTURE_ERROR)
                 is PictureTaken -> viewModel.processDocumentText(state.image)
             }
-        })
+        }
     }
 
     private fun setupDocumentObserver() {
-        viewModel.documentLiveData.observe(this, { state ->
-            when (state){
-                is ProcessingDocument -> binding.btnTakePicture.showLoading()
+        viewModel.documentLiveData.observe(this) { state ->
+            when (state) {
+                is ProcessingDocument -> binding.btnTakeDocumentPicture.showLoading()
                 is DocumentProcessed -> showDocumentResult(state.documentText)
                 is ErrorProcessingDocument -> updateError(state.error, PROCESSING_IMAGE_ERROR)
                 is NoTextFound -> showNoDocumentFound()
             }
-        })
+        }
     }
 
     private fun showDocumentResult(documentText: String){

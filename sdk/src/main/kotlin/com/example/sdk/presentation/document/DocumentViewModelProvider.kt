@@ -2,12 +2,9 @@ package com.example.sdk.presentation.document
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.sdk.domain.CameraBindUseCase
-import com.example.sdk.domain.CameraProviderUseCase
-import com.example.sdk.domain.ProcessTextUseCase
-import com.example.sdk.domain.TakePictureUseCase
+import com.example.sdk.domain.*
 
-class DocumentViewModelProvider: ViewModelProvider.Factory {
+class DocumentViewModelProvider : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return modelClass.getConstructor(
@@ -15,6 +12,11 @@ class DocumentViewModelProvider: ViewModelProvider.Factory {
             CameraProviderUseCase::class.java,
             CameraBindUseCase::class.java,
             TakePictureUseCase::class.java
-        ).newInstance(ProcessTextUseCase(), CameraProviderUseCase(), CameraBindUseCase(), TakePictureUseCase())
+        ).newInstance(
+            UseCaseFactory.getProcessTextUseCase(),
+            UseCaseFactory.getCameraProviderUseCase(),
+            UseCaseFactory.getCameraBindUseCase(),
+            UseCaseFactory.getTakePictureUseCase()
+        )
     }
 }

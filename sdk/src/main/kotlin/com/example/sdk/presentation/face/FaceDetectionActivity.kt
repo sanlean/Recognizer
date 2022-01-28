@@ -2,6 +2,8 @@ package com.example.sdk.presentation.face
 
 import android.graphics.Bitmap
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
 import androidx.camera.view.PreviewView
@@ -14,11 +16,11 @@ import com.example.sdk.presentation.customviews.LoadingButton
 
 internal class FaceDetectionActivity: CameraPreviewActivity() {
 
-    val viewModel: FaceViewModel by viewModels{ FaceViewModelProvider() }
+    private val viewModel: FaceViewModel by viewModels{ FaceViewModelProvider() }
 
     private val faceCameraPreview: PreviewView by lazy { findViewById(R.id.faceCameraPreview) }
     private val btnTakeFacePicture: LoadingButton by lazy { findViewById(R.id.btnTakeFacePicture) }
-    private val btnBack: Button by lazy { findViewById(R.id.btnBack) }
+    private val btnBack: ImageView by lazy { findViewById(R.id.btnBack) }
 
     override fun create() {
         super.create()
@@ -46,8 +48,8 @@ internal class FaceDetectionActivity: CameraPreviewActivity() {
     }
 
     private fun setupCameraObserver(){
-        viewModel.liveData.observe(this, { state ->
-            when(state){
+        viewModel.liveData.observe(this) { state ->
+            when (state) {
                 is LoadingCamera -> btnTakeFacePicture.showLoading()
                 is CameraLoaded -> btnTakeFacePicture.hideLoading()
                 is ErrorLoadingCamera -> updateError(state.error, CAMERA_LOADING_ERROR)
@@ -55,19 +57,19 @@ internal class FaceDetectionActivity: CameraPreviewActivity() {
                 is PictureTaken -> viewModel.processFace(state.image)
                 is ErrorTakingPicture -> updateError(state.error, CAPTURE_PICTURE_ERROR)
             }
-        })
+        }
     }
 
     private fun setupFaceObserver() {
-        viewModel.faceLiveData.observe(this, { state ->
-            when (state){
+        viewModel.faceLiveData.observe(this) { state ->
+            when (state) {
                 is ProcessingFace -> btnTakeFacePicture.showLoading()
                 is FacePrecessed -> showFaceResult(state.bitmap)
                 is ErrorProcessingFace -> updateError(state.error, PROCESSING_IMAGE_ERROR)
                 is MoreThanOneFace -> showMoreThanOneFaceFound()
                 is NoFace -> showNoFaceFound()
             }
-        })
+        }
     }
 
     private fun showFaceResult(facePicture: Bitmap){
