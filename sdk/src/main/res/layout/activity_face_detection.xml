@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.camera.view.PreviewView
-        android:id="@+id/cameraPreview"
+        android:id="@+id/faceCameraPreview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -46,10 +46,10 @@
         android:text="@string/face_position"
         android:textColor="@color/white"
         android:textSize="@dimen/font_18"
-        app:layout_constraintBottom_toTopOf="@id/btnTakePicture" />
+        app:layout_constraintBottom_toTopOf="@id/btnTakeFacePicture" />
 
     <com.example.sdk.presentation.customviews.LoadingButton
-        android:id="@+id/btnTakePicture"
+        android:id="@+id/btnTakeFacePicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/take_picture"
