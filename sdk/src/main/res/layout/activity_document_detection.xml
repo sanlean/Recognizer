@@ -45,10 +45,10 @@
         android:text="@string/document_position"
         android:textColor="@color/white"
         android:textSize="@dimen/font_18"
-        app:layout_constraintBottom_toTopOf="@id/btnTakePicture" />
+        app:layout_constraintBottom_toTopOf="@id/btnTakeDocumentPicture" />
 
     <com.example.sdk.presentation.customviews.LoadingButton
-        android:id="@+id/btnTakePicture"
+        android:id="@+id/btnTakeDocumentPicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/take_picture"

@@ -2,12 +2,9 @@ package com.example.sdk.presentation.face
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.sdk.domain.CameraBindUseCase
-import com.example.sdk.domain.CameraProviderUseCase
-import com.example.sdk.domain.ProcessFaceUseCase
-import com.example.sdk.domain.TakePictureUseCase
+import com.example.sdk.domain.*
 
-class FaceViewModelProvider: ViewModelProvider.Factory {
+class FaceViewModelProvider : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return modelClass.getConstructor(
@@ -15,6 +12,11 @@ class FaceViewModelProvider: ViewModelProvider.Factory {
             CameraProviderUseCase::class.java,
             CameraBindUseCase::class.java,
             TakePictureUseCase::class.java
-        ).newInstance(ProcessFaceUseCase(), CameraProviderUseCase(), CameraBindUseCase(), TakePictureUseCase())
+        ).newInstance(
+            UseCaseFactory.getProcessFaceUseCase(),
+            UseCaseFactory.getCameraProviderUseCase(),
+            UseCaseFactory.getCameraBindUseCase(),
+            UseCaseFactory.getTakePictureUseCase()
+        )
     }
 }

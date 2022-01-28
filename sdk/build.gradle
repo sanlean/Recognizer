@@ -45,6 +45,12 @@ android {
         }
         unitTests.returnDefaultValues = true
     }
+    packagingOptions {
+        resources.excludes.add("win32-x86/attach_hotspot_windows.dll")
+        resources.excludes.add("win32-x86-64/attach_hotspot_windows.dll")
+        resources.excludes.add("META-INF/*")
+        resources.excludes.add("META-INF/*/*")
+    }
 }
 
 dependencies {
@@ -75,6 +81,16 @@ dependencies {
     testImplementation Deps.tests.rules
     testImplementation Deps.tests.robolectric
     testImplementation Deps.tests.coroutines
+    testImplementation Deps.tests.espresso
     androidTestImplementation Deps.tests.junit
     androidTestImplementation Deps.tests.espresso
+    androidTestImplementation Deps.tests.mockk
+    androidTestImplementation Deps.tests.mockito
+    androidTestImplementation Deps.tests.truth
+    androidTestImplementation Deps.tests.androidCore
+    androidTestImplementation Deps.tests.coreKtx
+    androidTestImplementation Deps.tests.runner
+    androidTestImplementation Deps.tests.rules
+    androidTestImplementation Deps.tests.robolectric
+    androidTestImplementation Deps.tests.coroutines
 }
