@@ -5,31 +5,29 @@ import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.sdk.FaceDetectionActivityRobot.assertActivityIsFinished
-import com.example.sdk.FaceDetectionActivityRobot.assertButtonBackContentDescriptionIsCorrect
-import com.example.sdk.FaceDetectionActivityRobot.assertButtonTextIsCorrect
-import com.example.sdk.FaceDetectionActivityRobot.assertCameraNotLoaded
-import com.example.sdk.FaceDetectionActivityRobot.assertCameraWasLoaded
-import com.example.sdk.FaceDetectionActivityRobot.assertErrorProcessingFaces
-import com.example.sdk.FaceDetectionActivityRobot.assertErrorTakingPicture
-import com.example.sdk.FaceDetectionActivityRobot.assertMoreThaOneFaceFound
-import com.example.sdk.FaceDetectionActivityRobot.assertNoFaceFound
-import com.example.sdk.FaceDetectionActivityRobot.assertOnlyOneFaceFound
-import com.example.sdk.FaceDetectionActivityRobot.assertPictureWasTaken
-import com.example.sdk.FaceDetectionActivityRobot.assertTextViewDescriptionIsCorrect
-import com.example.sdk.FaceDetectionActivityRobot.clickBack
-import com.example.sdk.FaceDetectionActivityRobot.clickTakePicture
-import com.example.sdk.FaceDetectionActivityRobot.mockErrorLoadingCamera
-import com.example.sdk.FaceDetectionActivityRobot.mockErrorProcessingFaces
-import com.example.sdk.FaceDetectionActivityRobot.mockErrorTakingPicture
-import com.example.sdk.FaceDetectionActivityRobot.mockFaceListener
-import com.example.sdk.FaceDetectionActivityRobot.mockProcessingManyFaces
-import com.example.sdk.FaceDetectionActivityRobot.mockProcessingNoFaces
-import com.example.sdk.FaceDetectionActivityRobot.mockProcessingOneFace
-import com.example.sdk.FaceDetectionActivityRobot.mockSuccessLoadingCamera
-import com.example.sdk.FaceDetectionActivityRobot.mockSuccessTakingPicture
-import com.example.sdk.FaceDetectionActivityRobot.mockUseCaseFactory
-import com.example.sdk.presentation.face.FaceDetectionActivity
+import com.example.sdk.DocumentDetectionActivityRobot.assertActivityIsFinished
+import com.example.sdk.DocumentDetectionActivityRobot.assertButtonBackContentDescriptionIsCorrect
+import com.example.sdk.DocumentDetectionActivityRobot.assertButtonTextIsCorrect
+import com.example.sdk.DocumentDetectionActivityRobot.assertCameraNotLoaded
+import com.example.sdk.DocumentDetectionActivityRobot.assertCameraWasLoaded
+import com.example.sdk.DocumentDetectionActivityRobot.assertErrorProcessingText
+import com.example.sdk.DocumentDetectionActivityRobot.assertErrorTakingPicture
+import com.example.sdk.DocumentDetectionActivityRobot.assertNoTextFound
+import com.example.sdk.DocumentDetectionActivityRobot.assertPictureWasTaken
+import com.example.sdk.DocumentDetectionActivityRobot.assertTextFound
+import com.example.sdk.DocumentDetectionActivityRobot.assertTextViewDescriptionIsCorrect
+import com.example.sdk.DocumentDetectionActivityRobot.clickBack
+import com.example.sdk.DocumentDetectionActivityRobot.clickTakePicture
+import com.example.sdk.DocumentDetectionActivityRobot.mockErrorLoadingCamera
+import com.example.sdk.DocumentDetectionActivityRobot.mockErrorTakingPicture
+import com.example.sdk.DocumentDetectionActivityRobot.mockDocumentListener
+import com.example.sdk.DocumentDetectionActivityRobot.mockErrorProcessingText
+import com.example.sdk.DocumentDetectionActivityRobot.mockProcessingNoTextFound
+import com.example.sdk.DocumentDetectionActivityRobot.mockProcessingValidText
+import com.example.sdk.DocumentDetectionActivityRobot.mockSuccessLoadingCamera
+import com.example.sdk.DocumentDetectionActivityRobot.mockSuccessTakingPicture
+import com.example.sdk.DocumentDetectionActivityRobot.mockUseCaseFactory
+import com.example.sdk.presentation.document.DocumentDetectionActivity
 import io.mockk.unmockkAll
 import org.junit.After
 import org.junit.Before
@@ -39,8 +37,8 @@ import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.R], instrumentedPackages = ["androidx.loader.content"])
-class FaceDetectionActivityTest {
-    private lateinit var scenario: ActivityScenario<FaceDetectionActivity>
+class DocumentDetectionActivityTest {
+    private lateinit var scenario: ActivityScenario<DocumentDetectionActivity>
 
     @Before
     fun setup() {
@@ -56,14 +54,13 @@ class FaceDetectionActivityTest {
     @Test
     fun verifyTakePictureButtonWorks() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
         scenario.onActivity { activity ->
-            //mock face picture to be taken by camera
+            //mock text picture to be taken by camera
             mockSuccessTakingPicture(activity)
-            mockProcessingOneFace()
             //click on takePicture button
             clickTakePicture(activity)
             //assert listener was called
@@ -74,7 +71,7 @@ class FaceDetectionActivityTest {
     @Test
     fun verifyBackButtonWorks() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -102,7 +99,7 @@ class FaceDetectionActivityTest {
     @Test
     fun verifyIfListenerIsCalledWhenCameraIsNotLoaded() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera error
         mockErrorLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -117,7 +114,7 @@ class FaceDetectionActivityTest {
     @Test
     fun verifyIfListenerIsCalledWhenCameraIsLoaded() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -126,7 +123,7 @@ class FaceDetectionActivityTest {
             assertCameraWasLoaded()
             //mock result of camera
             mockSuccessTakingPicture(activity)
-            mockProcessingOneFace()
+            mockProcessingValidText()
             //try take a picture
             clickTakePicture(activity)
             //verify if picture was taken and correctly processed
@@ -137,7 +134,7 @@ class FaceDetectionActivityTest {
     @Test
     fun verifyIfListenerIsCalledWhenTakePictureFails() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -154,9 +151,9 @@ class FaceDetectionActivityTest {
     }
 
     @Test
-    fun verifyIfListenerIsCalledWhenProcessFaceFails() {
+    fun verifyIfListenerIsCalledWhenProcessTextFails() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -165,18 +162,18 @@ class FaceDetectionActivityTest {
             assertCameraWasLoaded()
             //mock result of camera
             mockSuccessTakingPicture(activity)
-            mockErrorProcessingFaces()
+            mockErrorProcessingText()
             //try take a picture
             clickTakePicture(activity)
             //verify if error was called on listener
-            assertErrorProcessingFaces()
+            assertErrorProcessingText()
         }
     }
 
     @Test
-    fun verifyIfListenerIsCalledWhenProcessOneFace() {
+    fun verifyIfListenerIsCalledWhenProcessText() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -185,18 +182,18 @@ class FaceDetectionActivityTest {
             assertCameraWasLoaded()
             //mock result of camera
             mockSuccessTakingPicture(activity)
-            mockProcessingOneFace()
+            mockProcessingValidText()
             //try take a picture
             clickTakePicture(activity)
-            //verify if only one face was caught
-            assertOnlyOneFaceFound()
+            //verify if text were caught
+            assertTextFound()
         }
     }
 
     @Test
-    fun verifyIfListenerIsCalledWhenProcessManyFaces() {
+    fun verifyIfListenerIsCalledWhenNoTextAreFound() {
         //set listener to activity companion object var
-        mockFaceListener()
+        mockDocumentListener()
         //prepare camera to be loaded successfully
         mockSuccessLoadingCamera()
         scenario.moveToState(Lifecycle.State.CREATED)
@@ -205,31 +202,11 @@ class FaceDetectionActivityTest {
             assertCameraWasLoaded()
             //mock result of camera
             mockSuccessTakingPicture(activity)
-            mockProcessingManyFaces()
-            //try take a picture
-            clickTakePicture(activity)
-            //verify if more than one face was caught
-            assertMoreThaOneFaceFound()
-        }
-    }
-
-    @Test
-    fun verifyIfListenerIsCalledWhenNoFacesAreFound() {
-        //set listener to activity companion object var
-        mockFaceListener()
-        //prepare camera to be loaded successfully
-        mockSuccessLoadingCamera()
-        scenario.moveToState(Lifecycle.State.CREATED)
-        scenario.onActivity { activity ->
-            //verify if camera was loaded
-            assertCameraWasLoaded()
-            //mock result of camera
-            mockSuccessTakingPicture(activity)
-            mockProcessingNoFaces()
+            mockProcessingNoTextFound()
             //try take a picture
             clickTakePicture(activity)
             //verify if zero faces was caught
-            assertNoFaceFound()
+            assertNoTextFound()
         }
     }
 

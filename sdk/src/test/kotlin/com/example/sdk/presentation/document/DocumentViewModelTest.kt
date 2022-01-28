@@ -33,7 +33,7 @@ import org.robolectric.annotation.Config
 @ExperimentalCoroutinesApi
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [Build.VERSION_CODES.R])
-class FaceViewModelTest {
+class DocumentViewModelTest {
     private lateinit var context: Context
     private val processFaceUseCase = spyk<ProcessFaceUseCase>()
     private val cameraProviderUseCase = spyk<CameraProviderUseCase>()

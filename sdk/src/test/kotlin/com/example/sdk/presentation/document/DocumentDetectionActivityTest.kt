@@ -4,16 +4,14 @@ import android.os.Build
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.sdk.R
 import com.example.sdk.enum.ErrorType.CAMERA_LOADING_ERROR
+import com.example.sdk.listeners.DocumentListener
 import com.example.sdk.listeners.FaceListener
 import com.example.sdk.presentation.camera.CameraPreviewActivity.Companion.cameraRequestListener
 import com.example.sdk.presentation.customviews.LoadingButton
+import com.example.sdk.presentation.document.DocumentDetectionActivity
+import com.example.sdk.presentation.document.DocumentDetectionActivity.Companion.documentListener
 import com.example.sdk.presentation.face.FaceDetectionActivity.Companion.faceListener
 import com.google.common.truth.Truth.assertThat
 import io.mockk.*
@@ -27,8 +25,8 @@ import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [Build.VERSION_CODES.R], instrumentedPackages = ["androidx.loader.content"])
-class FaceDetectionActivityTest {
-    private lateinit var scenario: ActivityScenario<FaceDetectionActivity>
+class DocumentDetectionActivityTest {
+    private lateinit var scenario: ActivityScenario<DocumentDetectionActivity>
 
     @Before
     fun setup(){
@@ -37,20 +35,19 @@ class FaceDetectionActivityTest {
 
     @Test
     fun `verify if texts are displayed correctly`() {
-        val controller:ActivityController<FaceDetectionActivity> = buildActivity(FaceDetectionActivity::class.java).setup()
+        val controller:ActivityController<DocumentDetectionActivity> = buildActivity(DocumentDetectionActivity::class.java).setup()
         val activity = controller.resume().get()
-            assertThat(activity.findViewById<LoadingButton>(R.id.btnTakeFacePicture)).isNotNull()
-            assertThat(activity.findViewById<LoadingButton>(R.id.btnTakeFacePicture).text).isEqualTo("Place your face in the space below")
-
+            assertThat(activity.findViewById<LoadingButton>(R.id.btnTakeDocumentPicture)).isNotNull()
+            assertThat(activity.findViewById<LoadingButton>(R.id.btnTakeDocumentPicture).text).isEqualTo("Take picture")
     }
 
     @Test
     fun `when updating error message should call listener and finish activity`(){
         scenario.moveToState(Lifecycle.State.CREATED)
         scenario.onActivity { activity ->
-            val listener = mockk<FaceListener>()
+            val listener = mockk<DocumentListener>()
             cameraRequestListener = listener
-            faceListener = listener
+            documentListener = listener
             every { listener.errorProcessingImage(CAMERA_LOADING_ERROR) } just Runs
             activity.updateError(Exception(), CAMERA_LOADING_ERROR)
             verify(exactly = 1) { listener.errorProcessingImage(CAMERA_LOADING_ERROR) }
