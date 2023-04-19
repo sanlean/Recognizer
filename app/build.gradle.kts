@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "com.example.testapp"
         minSdk = 21
         targetSdk = 31
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,6 +38,7 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+    namespace = "com.example.testapp"
 }
 
 dependencies {

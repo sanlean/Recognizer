@@ -5,14 +5,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         minSdk = 21
         targetSdk = 31
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         //consumerProguardFiles = "consumer-rules.pro"
@@ -57,6 +55,7 @@ android {
         resources.excludes.add("META-INF/*")
         resources.excludes.add("META-INF/*/*")
     }
+    namespace = "com.example.sdk"
 }
 
 dependencies {
