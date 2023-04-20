@@ -1,8 +1,9 @@
-package com.example.sdk.presentation.face
+package com.example.sdk.presentation.document
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
+import androidx.test.core.app.ApplicationProvider
 import com.example.sdk.cardBitmapFromAssets
 import com.example.sdk.domain.CameraBindUseCase
 import com.example.sdk.domain.CameraProviderUseCase
@@ -13,6 +14,7 @@ import com.example.sdk.enum.FacePrecessed
 import com.example.sdk.enum.NoFace
 import com.example.sdk.faceBitmapFromAssets
 import com.example.sdk.mockFace
+import com.example.sdk.presentation.face.FaceViewModel
 import com.google.common.truth.Truth.assertThat
 import com.google.mlkit.common.MlKit
 import com.google.mlkit.vision.common.InputImage
@@ -27,7 +29,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @ExperimentalCoroutinesApi
@@ -51,7 +52,7 @@ class DocumentViewModelTest {
             cameraBindUseCase,
             takePictureUseCase
         )
-        context = RuntimeEnvironment.application
+        context = ApplicationProvider.getApplicationContext()
         faceBitmap = faceBitmapFromAssets(context)
         cardBitmap = cardBitmapFromAssets(context)
         try {
