@@ -17,7 +17,7 @@ Android application with [MLKit](https://developers.google.com/ml-kit) for face 
 
 ## Download .apk?
 
-[Download APK Link](https://github.com/Leo-Neves/Recognizer/releases/download/v1.0.0/recognizer-1.0.0.apk)
+[Download APK Link](https://github.com/Leo-Neves/Recognizer/releases/latest)
 
 ## Project development
 
@@ -53,5 +53,7 @@ Android application with [MLKit](https://developers.google.com/ml-kit) for face 
 - Draw face parts (mouth, nose, eyes) on detected face.
 
 ## Future improvements
-- Configure jacoco to show test coverage reports.
-- Identify the event's city by latitude and longitude using Google's Geocoding API.
+- Github actions CI
+- Publish on Playstore
+- Dependency injection using Koin
+- Identify where pictures was taken by latitude and longitude using Google's Geocoding API.
