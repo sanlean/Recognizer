@@ -1,7 +1,10 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("org.jetbrains.kotlin.android")
 }
+
+apply(from = "../jacoco/modules.gradle")
 
 android {
     compileSdk = 31
@@ -12,7 +15,7 @@ android {
         minSdk = 21
         targetSdk = 31
         versionCode = 3
-        versionName = "1.0.2"
+        versionName = "1.0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -56,7 +59,7 @@ dependencies {
     implementation(MachineLearningGoogleKit.textRecognition)
     implementation(MachineLearningGoogleKit.faceDetection)
 
-    testImplementation(Tests.junit)
-    androidTestImplementation(Tests.junit)
+    testImplementation(Tests.androidxJUnit)
+    androidTestImplementation(Tests.androidxJUnit)
     androidTestImplementation(Tests.espresso)
 }

@@ -27,7 +27,8 @@ object Design{
 }
 
 object Tests{
-    const val junit = "androidx.test.ext:junit:${Versions.junit}"
+    const val junit = "junit:junit:${Versions.junit}"
+    const val androidxJUnit = "androidx.test.ext:junit:${Versions.androidxJunit}"
     const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
     const val truth = "androidx.test.ext:truth:${Versions.truth}"
     const val androidCore = "androidx.arch.core:core-testing:${Versions.coreTesting}"

@@ -1,8 +1,10 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("jacoco")
+    id("org.jetbrains.kotlin.android")
 }
+
+apply(from = "../jacoco/modules.gradle")
 
 android {
     compileSdk = 31
@@ -13,10 +15,14 @@ android {
         targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        //consumerProguardFiles = "consumer-rules.pro"
+        consumerProguardFiles.add(File("consumer-rules.pro"))
     }
 
     buildTypes {
+        debug {
+            enableAndroidTestCoverage = false
+            enableUnitTestCoverage = true
+        }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
@@ -77,6 +83,7 @@ dependencies {
     implementation(MachineLearningGoogleKit.faceDetection)
 
     testImplementation(Tests.junit)
+    testImplementation(Tests.androidxJUnit)
     testImplementation(Tests.mockk)
     testImplementation(Tests.mockito)
     testImplementation(Tests.truth)
@@ -87,7 +94,7 @@ dependencies {
     testImplementation(Tests.robolectric)
     testImplementation(Tests.coroutines)
     testImplementation(Tests.espresso)
-    androidTestImplementation(Tests.junit)
+    androidTestImplementation(Tests.androidxJUnit)
     androidTestImplementation(Tests.espresso)
     androidTestImplementation(Tests.mockk)
     androidTestImplementation(Tests.mockito)
