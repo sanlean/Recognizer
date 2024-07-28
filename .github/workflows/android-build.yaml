@@ -22,11 +22,20 @@ jobs:
           java-version: '8'
           distribution: 'zulu'
 
+      - name: Install Android Command Line Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O commandlinetools-linux.zip
+          unzip commandlinetools-linux.zip -d ${HOME}/android-sdk
+          mkdir -p ${HOME}/android-sdk/cmdline-tools
+          mv ${HOME}/android-sdk/tools ${HOME}/android-sdk/cmdline-tools/latest
+
       - name: Set up Android SDK
-        uses: reactivecircus/android-sdk-action@v2
-        with:
-          api-levels: '35'
-          build-tools: '35.0.0'
+        run: |
+          echo "sdk.dir=${HOME}/android-sdk" > local.properties
+          ${HOME}/android-sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=${HOME}/android-sdk --update
+          ${HOME}/android-sdk/cmdline-tools/latest/bin/sdkmanager --sdk_root=${HOME}/android-sdk "platforms;android-35" "build-tools;35.0.0"
 
       - name: Build with Gradle
         run: ./gradlew assembleDebug
