@@ -1,0 +1,39 @@
+name: Build Android Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'zulu'
+
+      - name: Install Android Command Line Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -O commandlinetools-linux.zip
+          unzip commandlinetools-linux.zip -d ${HOME}/android-sdk
+
+      - name: Set up Android SDK
+        run: |
+          echo "sdk.dir=${HOME}/android-sdk" > local.properties
+          ${HOME}/android-sdk/cmdline-tools/bin/sdkmanager --sdk_root=${HOME}/android-sdk --update
+          ${HOME}/android-sdk/cmdline-tools/bin/sdkmanager --sdk_root=${HOME}/android-sdk "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug
