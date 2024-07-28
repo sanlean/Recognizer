@@ -40,8 +40,12 @@ internal class FaceViewModel(
                 when(faces.size) {
                     0 -> _faceLiveData.value = NoFace
                     1 -> {
-                        val croppedFace = image.bitmapInternal.cropBitmap(faces[0].boundingBox)
-                        _faceLiveData.value = FacePrecessed(croppedFace)
+                        val croppedFace = image.bitmapInternal?.cropBitmap(faces[0].boundingBox)
+                        if (croppedFace!=null) {
+                            _faceLiveData.value = FacePrecessed(croppedFace)
+                        }else{
+                            throw InvalidImageException()
+                        }
                     }
                     else -> _faceLiveData.value = MoreThanOneFace
                 }
