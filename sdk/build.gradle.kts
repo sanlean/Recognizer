@@ -7,12 +7,11 @@ plugins {
 apply(from = "../jacoco/modules.gradle")
 
 android {
-    compileSdk = 31
-    buildToolsVersion = "30.0.3"
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles.add(File("consumer-rules.pro"))
