@@ -30,6 +30,6 @@ object Versions {
     const val stdlib = "1.4.32"
     const val cameraX = "1.0.0"
     const val cameraView = "1.0.0-alpha25"
-    const val textRecognition = "17.0.1"
-    const val faceDetection = "16.2.1"
+    const val textRecognition = "19.0.0"
+    const val faceDetection = "17.1.0"
 }
