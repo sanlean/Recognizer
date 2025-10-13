@@ -8,9 +8,6 @@ object Support{
     const val collectionsKtx = "androidx.collection:collection-ktx:${Versions.collectionsktx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtx}"
-    const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensions}"
-    const val percentlayout = "androidx.percentlayout:percentlayout:${Versions.percentlayout}"
-    const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
 }
 
 object Lifecycle{
@@ -30,7 +27,7 @@ object Tests{
     const val junit = "junit:junit:${Versions.junit}"
     const val androidxJUnit = "androidx.test.ext:junit:${Versions.androidxJunit}"
     const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
-    const val truth = "androidx.test.ext:truth:${Versions.truth}"
+    const val truth = "com.google.truth:truth:${Versions.truth}"
     const val androidCore = "androidx.arch.core:core-testing:${Versions.coreTesting}"
     const val coreKtx = "androidx.test:core-ktx:${Versions.coreKtxTest}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
@@ -54,4 +51,13 @@ object Camera{
 object MachineLearningGoogleKit{
     const val textRecognition = "com.google.android.gms:play-services-mlkit-text-recognition:${Versions.textRecognition}"
     const val faceDetection = "com.google.android.gms:play-services-mlkit-face-detection:${Versions.faceDetection}"
+}
+
+object Plugins {
+    const val androidApplication = "com.android.application"
+    const val kotlinAndroid = "org.jetbrains.kotlin.android"
+    const val kotlinParcelize = "kotlin-parcelize"
+    const val kotlinKsp = "com.google.devtools.ksp"
+    const val composeCompiler = "org.jetbrains.kotlin.plugin.compose"
+    const val detekt = "io.gitlab.arturbosch.detekt"
 }
