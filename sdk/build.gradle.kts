@@ -7,12 +7,11 @@ plugins {
 apply(from = "../jacoco/modules.gradle")
 
 android {
-    compileSdk = 31
-    buildToolsVersion = "30.0.3"
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 31
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles.add(File("consumer-rules.pro"))
@@ -31,8 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     sourceSets {
         getByName("main") {
@@ -46,7 +45,7 @@ android {
         }
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_21.majorVersion
     }
     buildFeatures {
         viewBinding = true
@@ -55,7 +54,7 @@ android {
         unitTests.isIncludeAndroidResources = true
         unitTests.isReturnDefaultValues = true
     }
-    packagingOptions {
+    packaging {
         resources.excludes.add("win32-x86/attach_hotspot_windows.dll")
         resources.excludes.add("win32-x86-64/attach_hotspot_windows.dll")
         resources.excludes.add("META-INF/*")

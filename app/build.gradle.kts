@@ -7,13 +7,12 @@ plugins {
 apply(from = "../jacoco/modules.gradle")
 
 android {
-    compileSdk = 31
-    buildToolsVersion = "30.0.3"
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
 
     defaultConfig {
         applicationId = "com.example.testapp"
         minSdk = 21
-        targetSdk = 31
         versionCode = 3
         versionName = "1.0.3"
 
